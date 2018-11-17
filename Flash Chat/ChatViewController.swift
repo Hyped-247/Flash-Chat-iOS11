@@ -35,7 +35,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         //TODO: Set the tapGesture here:
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped()))
+        let tapGesture = UITapGestureRecognizer(target: self, action:
+            #selector(tableViewTapped))
         messageTableView.addGestureRecognizer(tapGesture)
         
         
@@ -79,10 +80,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        return
 //    }
     //TODO: Declare tableViewTapped here:
-    func tableViewTapped(){
+     @objc func tableViewTapped(){
         messageTextfield.endEditing(true)
     }
-    
+   
     
     //TODO: Declare configureTableView here:
     func configureTableView() {
@@ -148,11 +149,11 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print(error!)
             } else {
                 print("Message have been successfully saved")
-                self.messageTextfield
-                
+                self.messageTextfield.isEnabled = true
+                self.sendButton.isEnabled = true
+                self.messageTextfield.text = ""
             }
         }
-
     }
     
     //TODO: Create the retrieveMessages method here:
